@@ -1,20 +1,24 @@
+# https://docs.scipi
 import numpy as np 
-import pylab as pl 
 
-# crea un vector con los valores en el eje y para cada valor del eje x
-x=[6000,7000,8000,9000,10000]
-# crea un vector con los valores del eje x
-y=[73,80,85,87,89]
-#grafica el vector x contra el vectory
-pl.plot(x,y)
-# crea un areglo con los valores del eje x
-x1=[7000,8000,9000,10000,11000]
-# crea un vector con los valores del eje y para cada valor del eje x
-y2=[80,83,85,86,88]
-# grafica el vector x contra el vector y
-pl.plot(x1,y2)
-# dar nombre a los ejes 
-pl.xlabel('Voltage[V]')
-pl.ylabel('Eficiecia[%]')
-#guarda la imagen 
-pl.savefig('temp1.png')
+import matplotlib.pyplot as plt 
+# declaraos una fincion que nos devuelvaf(x) =exp(-x)* cos (2pi*t)
+def f(t):
+    return np.exp(-t)* np.cos(2*np.pi*t)
+# definimos el rangp de dos variables y el intervalo en el que cambian 
+t1 = np.arange(0.0, 5.0, 0.1)
+t2 = np.arange(0.0, 5.0, 0.02)
+# crea el grupo de graficas 
+plt.figure(1)
+# crea el lienzo con dos renglones, una columna y entra a la primera seccion de esa division 
+plt.subplot(211)
+#grafica la variable t1 contra la funcion f (t1) con circulos azules y grafica la varible t2 contra la funcion f(t2) con una linea negra
+plt.plot(t1, f(t1), 'bo', t2,  f(t2), 'k')
+    #entra en la sugunda seccion del lienzo dividido
+plt.subplot(212)
+    #grafica la variable t2 contra la funcion cos(2pi*x)con una linea punteada roja
+plt.plot(t2, np.cos(2*np.pi*t2), 'r--')
+plt.savefig('Dosfunciones.png')
+    #muestra a grafica 
+plt.show()
+  
